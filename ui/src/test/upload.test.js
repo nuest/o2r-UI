@@ -1,4 +1,4 @@
-const timeout = 100000;
+const timeout = 600 * 1000;
 
 beforeAll(async () => {
     await page.goto(URL, { waitUntil: "domcontentloaded" });
@@ -51,11 +51,12 @@ describe("Test upload", () => {
         // prepare file to upload
         let fileToUpload = './src/test/insyde_workspace.zip';
         inputUploadHandle.uploadFile(fileToUpload);
-        await page.waitForTimeout(2000)
+        await page.waitForTimeout(2000);
         await page.click('#upload')
         await page.waitForNavigation();
-        await page.waitForTimeout(2000)
-        //await page.screenshot({ path: 'image.jpg', type: 'jpeg' });
+        await page.waitForTimeout(2000);
+        await page.screenshot({ path: 'screenshots/afterUpload.jpg', type: 'jpeg' });
+        await page.waitForTimeout(10000);
   
 
         const handle = await page.$("h3");

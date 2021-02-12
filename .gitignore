@@ -1,1 +1,5 @@
 ui/src/Dockerfile-prod
+
+ui/screenshots/
+
+ui/.eslintcache
